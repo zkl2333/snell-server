@@ -5,6 +5,7 @@ ENV PORT=12543
 ENV PSK=
 ENV OBFS=tls
 COPY Entrypoint.sh /usr/bin/
+RUN apk add gcompat
 RUN wget --no-check-certificate -O snell.zip $SNELL_URL
 RUN unzip snell.zip
 RUN rm -f snell.zip
