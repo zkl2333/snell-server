@@ -6,6 +6,8 @@ ENV PSK=
 ENV OBFS=tls
 COPY Entrypoint.sh /usr/bin/
 RUN apk add gcompat
+RUN apk upgrade --no-cache && \
+    apk add --no-cache libgcc libstdc++
 RUN wget --no-check-certificate -O snell.zip $SNELL_URL
 RUN unzip snell.zip
 RUN rm -f snell.zip
